@@ -1,24 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T41-JS-Jrv">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="TVY-qh-c09">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="T41-JS-Jrv" customClass="ViewController" customModule="FatImages" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lwr-wY-TkL"/>
+                        <viewControllerLayoutGuide type="bottom" id="qaR-Ll-oBl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HN0-9R-ZL6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ocy-kB-7Cf">
+                                <rect key="frame" x="0.0" y="64" width="414" height="734"/>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lwq-AG-QqU">
+                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem title="Sync" id="L9f-yT-azi">
+                                        <connections>
+                                            <action selector="synchronousDownloadWithSender:" destination="T41-JS-Jrv" id="3VH-vR-jhc"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="SGM-K8-PqL"/>
+                                    <barButtonItem title="Async" id="1tW-qB-w8G">
+                                        <connections>
+                                            <action selector="simpleAsynchronousDownloadWithSender:" destination="T41-JS-Jrv" id="vzH-AF-2Ga"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="2Lp-gQ-Vwl"/>
+                                    <barButtonItem title="Async + Completion" id="LtS-u5-sWX">
+                                        <connections>
+                                            <action selector="asynchronousDownloadWithSender:" destination="T41-JS-Jrv" id="7sJ-es-iYf"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="eW8-hQ-49g">
+                                <rect key="frame" x="18" y="433" width="378" height="31"/>
+                                <connections>
+                                    <action selector="setTransparencyOfImageWithSender:" destination="T41-JS-Jrv" eventType="valueChanged" id="tZV-28-dpA"/>
+                                </connections>
+                            </slider>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ijm-mD-uVM">
+                                <rect key="frame" x="188.5" y="379.5" width="37" height="37"/>
+                                <color key="color" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Lwq-AG-QqU" firstAttribute="leading" secondItem="ocy-kB-7Cf" secondAttribute="leading" id="8vr-nV-egH"/>
+                            <constraint firstItem="eW8-hQ-49g" firstAttribute="centerY" secondItem="HN0-9R-ZL6" secondAttribute="centerY" id="Asf-dU-7ma"/>
+                            <constraint firstItem="ocy-kB-7Cf" firstAttribute="leading" secondItem="HN0-9R-ZL6" secondAttribute="leading" id="ClM-42-cyB"/>
+                            <constraint firstAttribute="trailing" secondItem="ocy-kB-7Cf" secondAttribute="trailing" id="Hk4-cT-BvM"/>
+                            <constraint firstItem="ijm-mD-uVM" firstAttribute="centerX" secondItem="eW8-hQ-49g" secondAttribute="centerX" id="Nfe-lm-bWz"/>
+                            <constraint firstItem="Lwq-AG-QqU" firstAttribute="centerX" secondItem="eW8-hQ-49g" secondAttribute="centerX" id="Qfx-L1-vTw"/>
+                            <constraint firstItem="eW8-hQ-49g" firstAttribute="leading" secondItem="HN0-9R-ZL6" secondAttribute="leadingMargin" id="WqO-fy-zew"/>
+                            <constraint firstItem="Lwq-AG-QqU" firstAttribute="bottom" secondItem="qaR-Ll-oBl" secondAttribute="top" id="Zkb-2H-EfG"/>
+                            <constraint firstItem="ocy-kB-7Cf" firstAttribute="trailing" secondItem="Lwq-AG-QqU" secondAttribute="trailing" id="e0z-tx-j0O"/>
+                            <constraint firstItem="ocy-kB-7Cf" firstAttribute="top" secondItem="lwr-wY-TkL" secondAttribute="bottom" constant="20" id="m05-Li-0gJ"/>
+                            <constraint firstItem="ijm-mD-uVM" firstAttribute="centerY" secondItem="eW8-hQ-49g" secondAttribute="centerY" constant="-50" id="t1m-iE-F9y"/>
+                            <constraint firstItem="Lwq-AG-QqU" firstAttribute="top" secondItem="ocy-kB-7Cf" secondAttribute="bottom" constant="20" id="u25-jn-TYb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oNI-V1-mn3"/>
                     </view>
+                    <connections>
+                        <outlet property="activityView" destination="ijm-mD-uVM" id="KPy-5V-b44"/>
+                        <outlet property="photoView" destination="ocy-kB-7Cf" id="p0j-gZ-JM9"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0KV-wG-zeg" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="201" y="157"/>
         </scene>
     </scenes>
 </document>
